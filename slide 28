@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+int main()
+{
+    int numeros[10];
+    int posicoes[10];   // guarda as posicoes onde o numero foi encontrado
+    int i, procurado, qtd = 0;
+
+    // Leitura dos 10 numeros
+    for (i = 0; i < 10; i++)
+    {
+        printf("Digite o numero %d: ", i + 1);
+        scanf("%d", &numeros[i]);
+    }
+
+    // Exibe o array
+    printf("\nArray: ");
+    for (i = 0; i < 10; i++)
+        printf("%d ", numeros[i]);
+    printf("\n");
+
+    // Numero a pesquisar
+    printf("Digite um numero: ");
+    scanf("%d", &procurado);
+
+    // Percorre o array contando e guardando as posicoes
+    for (i = 0; i < 10; i++)
+    {
+        if (numeros[i] == procurado)
+        {
+            posicoes[qtd] = i;
+            qtd++;
+        }
+    }
+
+    // Resultado
+    if (qtd == 0)
+    {
+        printf("\nO numero %d NAO foi encontrado.\n", procurado);
+    }
+    else
+    {
+        printf("\nO numero %d foi encontrado %d vez(es).\n", procurado, qtd);
+        printf("Posicoes: ");
+        for (i = 0; i < qtd; i++)
+        {
+            if (i > 0)
+                printf(", ");
+            printf("%d", posicoes[i]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
