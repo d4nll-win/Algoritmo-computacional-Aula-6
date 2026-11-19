@@ -1,0 +1,72 @@
+#include <stdio.h>
+
+int main()
+{
+    int estoque[10];
+    int i, maior, qtdAcima20 = 0;
+    int temBaixo = 0, temEsgotado = 0;
+
+    // Leitura das quantidades
+    for (i = 0; i < 10; i++)
+    {
+        printf("Quantidade do produto %d: ", i + 1);
+        scanf("%d", &estoque[i]);
+    }
+
+    // 1) Mostra a quantidade de cada produto
+    printf("\n=== Estoque ===\n");
+    for (i = 0; i < 10; i++)
+        printf("Produto %d: %d unidade(s)\n", i + 1, estoque[i]);
+
+    // 2) Estoque baixo (quantidade < 5, conforme o enunciado; inclui os esgotados)
+    printf("\nProdutos com estoque baixo (menos de 5):\n");
+    for (i = 0; i < 10; i++)
+    {
+        if (estoque[i] < 5)
+        {
+            printf("Produto %d (%d unidade(s))\n", i + 1, estoque[i]);
+            temBaixo = 1;
+        }
+    }
+    if (!temBaixo)
+        printf("Nenhum\n");
+
+    // 3) Esgotados (quantidade = 0)
+    printf("\nProdutos esgotados:\n");
+    for (i = 0; i < 10; i++)
+    {
+        if (estoque[i] == 0)
+        {
+            printf("Produto %d\n", i + 1);
+            temEsgotado = 1;
+        }
+    }
+    if (!temEsgotado)
+        printf("Nenhum\n");
+
+    // 4) Quantos tem mais de 20 unidades
+    for (i = 0; i < 10; i++)
+    {
+        if (estoque[i] > 20)
+            qtdAcima20++;
+    }
+    printf("\nProdutos com mais de 20 unidades: %d\n", qtdAcima20);
+
+    // 5) Produto com maior quantidade (mostra todos em caso de empate)
+    maior = estoque[0];
+    for (i = 1; i < 10; i++)
+    {
+        if (estoque[i] > maior)
+            maior = estoque[i];
+    }
+    printf("\nMaior quantidade em estoque: %d unidade(s)\n", maior);
+    printf("Produto(s): ");
+    for (i = 0; i < 10; i++)
+    {
+        if (estoque[i] == maior)
+            printf("%d ", i + 1);
+    }
+    printf("\n");
+
+    return 0;
+}
