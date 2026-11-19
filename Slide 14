@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+int main()
+{
+    char nome[100];
+    float media;
+
+    printf("Digite o nome do aluno: ");
+    // %[^\n] le a linha inteira (aceita nomes com espaco, ex.: "Maria Silva")
+    scanf(" %99[^\n]", nome);
+
+    printf("Digite a media do aluno: ");
+    scanf("%f", &media);
+
+    printf("\nO aluno %s tem media %.2f\n", nome, media);
+
+    return 0;
+}
