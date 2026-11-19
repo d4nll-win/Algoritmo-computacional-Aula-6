@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main()
+{
+    int matriz[3][3];
+    int i, j;
+
+    // Preenche a matriz
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("Entre com o elemento da linha %d coluna %d: ", i, j);
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Exibe: elementos da mesma linha separados por " - ", linhas separadas por quebra de linha
+    printf("\n");
+    for (i = 0; i < 3; i++)
+    {
+        for (j = 0; j < 3; j++)
+        {
+            printf("%d", matriz[i][j]);
+            if (j < 2)
+                printf(" - ");
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
