@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+#define QTD 30
+
+int main()
+{
+    float medias[QTD];
+    char nomes[QTD][100];
+    int i;
+
+    // Leitura dos nomes e medias
+    for (i = 0; i < QTD; i++)
+    {
+        printf("Digite o nome do aluno %d: ", i + 1);
+        scanf(" %99[^\n]", nomes[i]);   // aceita nomes com espaco
+        printf("Digite a media do aluno %d: ", i + 1);
+        scanf("%f", &medias[i]);
+    }
+
+    // Exibe a lista
+    printf("\n=== Lista de alunos ===\n");
+    for (i = 0; i < QTD; i++)
+        printf("O aluno %s tem media %.2f\n", nomes[i], medias[i]);
+
+    return 0;
+}
